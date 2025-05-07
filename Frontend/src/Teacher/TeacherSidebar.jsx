@@ -31,22 +31,22 @@ const TeacherSidebar = () => {
         </p>
         <ul className="w-full">
         <li>
-            <a href="" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
+            <a href="/TeacherDashboard" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
               <FaHome className={'transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}'} />
               {!collapsed && <span>Dashboard</span>}
             </a>
           </li>
           <li>
-            <a href="" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
+            <a href="/TeacherViewStudentList" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
               <FaBook className={'transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}'} />
               {!collapsed && <span>Student List </span>}
             </a>
           </li>
           
           <li>
-            <a href="" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
+            <a href="/TeacherMViewSubject" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
               <FaClipboardList className={'transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}'} />
-              {!collapsed && <span>Review Mark <br/></span>}
+              {!collapsed && <span>View Subject <br/></span>}
             </a>
           </li>
 
@@ -59,7 +59,7 @@ const TeacherSidebar = () => {
         <ul className="w-full">
          
           <li>
-            <a href="#" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
+            <a href="/TeacherViewMProfile" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
               <FaUser className={'transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}'} />
               {!collapsed && <span>Profile</span>}
             </a>

@@ -32,7 +32,7 @@ function Login() {
             </p>
             
             <div className='flex  '>
-            <button className="btn btn-soft btn-secondary ">LOGIN</button>
+            <button className="btn btn-soft btn-secondary ">< a href='/AddStudent'>LOGIN</a></button>
             <p className='mt-3 ml-40'>
                 Not register <a href='/Signup'><span className='underline text-blue-500 cursor-pointer '> Signup
                     

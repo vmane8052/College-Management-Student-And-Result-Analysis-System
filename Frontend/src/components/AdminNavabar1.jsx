@@ -15,6 +15,7 @@ function AdminNavabar1() {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-40 p-2 shadow bg-opacity-90 font-bold">
         <li><a href='/AddStudent'>Dashboard</a></li>
         <li><a href='/AddCourse'>Add Course</a></li>
+        <li><a href='/ViewCourse'>View Course</a></li>
         <li><a href='/AddSem'>Add Semister</a></li>
         <li><a href='/AddSubject'>Add Subject</a></li>
         <li><a href='StudentAdd'>Add Student</a></li>

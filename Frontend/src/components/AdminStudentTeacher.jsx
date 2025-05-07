@@ -15,7 +15,7 @@ function AdminStudentTeacher() {
           <h2 className="text-2xl font-bold">Admin</h2>
           <p className="mt-2">Manage users, courses, Teacher and system settings.</p>
           <button className="mt-4 bg-white text-blue-500 px-4 py-2 rounded-lg hover:bg-gray-200">
-           <a href='/AddStudent'> Login </a>
+           <a href='/Login2'> Login </a>
           </button>
         </div>
         {/* Teacher Box */}
@@ -23,7 +23,7 @@ function AdminStudentTeacher() {
           <h2 className="text-2xl font-bold">Teachers</h2>
           <p className="mt-2">Manage students, Review Mark and check .</p>
           <button className="mt-4 bg-white text-yellow-500 px-4 py-2 rounded-lg hover:bg-gray-200">
-           <a href='/TeacherSidebar'> Login </a>
+           <a href='/TeacherLogin'> Login </a>
           </button>
         </div>
 
@@ -32,7 +32,9 @@ function AdminStudentTeacher() {
           <h2 className="text-2xl font-bold">Students</h2>
           <p className="mt-2">Access courses, Teacher , Subject and Fill Mark </p>
           <button className="mt-4 bg-white text-green-500 px-4 py-2 rounded-lg hover:bg-gray-200">
+            <a href='/StudentLogin'>
             Login
+            </a>
           </button>
         </div>
 
