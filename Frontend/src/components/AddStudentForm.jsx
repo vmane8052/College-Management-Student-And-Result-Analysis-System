@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getUsers, getSemesters } from "../service/api.js"; // Import API calls to fetch courses and semesters
 
 const AddStudentForm = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +32,29 @@ const AddStudentForm = () => {
 
   const [excelFile, setExcelFile] = useState(null);
   const [errors, setErrors] = useState({});
+  const [courses, setCourses] = useState([]); // State to store fetched courses
+  const [semesters, setSemesters] = useState([]); // State to store fetched semesters
   const navigate = useNavigate();
+
+  // Fetch courses and semesters when the component mounts
+  useEffect(() => {
+    const fetchCoursesAndSemesters = async () => {
+      try {
+        // Fetch courses
+        const courseResponse = await getUsers();
+        setCourses(courseResponse.data);
+
+        // Fetch semesters
+        const semesterResponse = await getSemesters();
+        setSemesters(semesterResponse.data);
+      } catch (error) {
+        console.error("Failed to fetch courses or semesters:", error);
+        alert("Failed to load courses or semesters. Please try again.");
+      }
+    };
+
+    fetchCoursesAndSemesters();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,9 +86,14 @@ const AddStudentForm = () => {
           method: "POST",
           body: fd,
         });
-        alert((await response.json()).message);
-      } catch {
-        alert("Excel upload failed");
+        const result = await response.json();
+        if (!response.ok) {
+          throw new Error(result.message || "Excel upload failed");
+        }
+        alert(result.message);
+      } catch (error) {
+        console.error("Excel upload error:", error);
+        alert(`Excel upload failed: ${error.message}`);
       }
     }
 
@@ -109,8 +137,8 @@ const AddStudentForm = () => {
             { label: "Email Address", name: "email", type: "email" },
             { label: "Password", name: "password", type: "text" },
             { label: "Blood Group", name: "bloodGroup", type: "select" },
-            { label: "Course ID", name: "courseId", type: "text" },
-            { label: "Semester ID", name: "semesterId", type: "text" },
+            { label: "Course ID", name: "courseId", type: "select" },
+            { label: "Semester ID", name: "semesterId", type: "select" },
             { label: "Address", name: "address", type: "text" },
             { label: "Created By", name: "createdBy", type: "text" },
             { label: "Created On", name: "createdOn", type: "date" },
@@ -145,7 +173,7 @@ const AddStudentForm = () => {
                       "South African",
                       "Other",
                     ].map((opt) => (
-                      <option key={opt}>{opt}</option>
+                      <option key={opt} value={opt}>{opt}</option>
                     ))}
                   {field.name === "religion" &&
                     [
@@ -157,19 +185,31 @@ const AddStudentForm = () => {
                       "Jainism",
                       "Other",
                     ].map((opt) => (
-                      <option key={opt}>{opt}</option>
+                      <option key={opt} value={opt}>{opt}</option>
                     ))}
                   {field.name === "casteCategory" &&
                     ["General", "OBC", "SC", "ST", "EWS", "Other"].map((opt) => (
-                      <option key={opt}>{opt}</option>
+                      <option key={opt} value={opt}>{opt}</option>
                     ))}
                   {field.name === "gender" &&
                     ["Male", "Female", "Other"].map((opt) => (
-                      <option key={opt}>{opt}</option>
+                      <option key={opt} value={opt}>{opt}</option>
                     ))}
                   {field.name === "bloodGroup" &&
                     ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"].map((opt) => (
-                      <option key={opt}>{opt}</option>
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  {field.name === "courseId" &&
+                    courses.map((course) => (
+                      <option key={course.courseId} value={course.courseId}>
+                        {course.courseId}
+                      </option>
+                    ))}
+                  {field.name === "semesterId" &&
+                    semesters.map((semester) => (
+                      <option key={semester.semId} value={semester.semId}>
+                        {semester.semId}
+                      </option>
                     ))}
                 </select>
               ) : (

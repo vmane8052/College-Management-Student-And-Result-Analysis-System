@@ -51,8 +51,8 @@ const ViewSemesterTable = () => {
         <table className="w-full table-auto">
           <thead>
             <tr className="bg-gray-200 text-center">
-              <th className="px-4 py-2">ID</th>
-            
+              
+              <th className="px-4 py-2">Semester id</th>
               <th className="px-4 py-2">Semester Name</th>
               <th className="px-4 py-2">Created By</th>
               <th className="px-4 py-2">Created On</th>
@@ -64,8 +64,8 @@ const ViewSemesterTable = () => {
           <tbody>
             {semesters.map((sem) => (
               <tr key={sem._id || sem.id} className="text-center">
-                <td className="border px-4 py-2">{sem.id}</td>
                 
+                <td className="border px-4 py-2">{sem.semId}</td>
                 <td className="border px-4 py-2">{sem.semName}</td>
                 <td className="border px-4 py-2">{sem.createdBy}</td>
                 <td className="border px-4 py-2">{sem.createdOn}</td>

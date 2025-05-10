@@ -97,10 +97,7 @@ const ViewCourses = () => {
         </h2>
         <div className="space-y-4">
           <div className="flex flex-col">
-            <label className="text-gray-700 font-bold">Course Code</label>
-            <p className="w-full p-3 border border-gray-300 rounded-lg bg-gray-100">
-              {course ? course.courseId : "Not assigned"}
-            </p>
+            
           </div>
           <div className="flex flex-col">
             <label className="text-gray-700 font-bold">Course Name</label>
@@ -109,10 +106,7 @@ const ViewCourses = () => {
             </p>
           </div>
           <div className="flex flex-col">
-            <label className="text-gray-700 font-bold">Semester Code</label>
-            <p className="w-full p-3 border border-gray-300 rounded-lg bg-gray-100">
-              {semester ? semester.semId : "Not assigned"}
-            </p>
+            
           </div>
           <div className="flex flex-col">
             <label className="text-gray-700 font-bold">Semester Name</label>

@@ -3,6 +3,12 @@ import Subject from '../schema/subject-schema.js';
 // Add subject
 export const addSubject = async (request, response) => {
   const formData = request.body;
+
+  // Validate subjectType
+  if (formData.subjectType && !["Theory", "Practical"].includes(formData.subjectType)) {
+    return response.status(400).json({ message: "Invalid subject type. Must be 'Theory' or 'Practical'." });
+  }
+
   const newSubject = new Subject(formData);
 
   try {
@@ -46,15 +52,22 @@ export const deleteSubject = async (request, response) => {
 
 // Update subject
 export const updateSubject = async (request, response) => {
+  const formData = request.body;
+
+  // Validate subjectType
+  if (formData.subjectType && !["Theory", "Practical"].includes(formData.subjectType)) {
+    return response.status(400).json({ message: "Invalid subject type. Must be 'Theory' or 'Practical'." });
+  }
+
   try {
-    const subject = await Subject.findByIdAndUpdate(request.params.id, request.body, { new: true });
+    const subject = await Subject.findByIdAndUpdate(request.params.id, formData, { new: true });
     response.status(200).json(subject);
   } catch (error) {
     response.status(409).json({ message: error.message });
   }
 };
 
-//New function to get subjects by courseId and semesterId
+// New function to get subjects by courseId and semesterId
 export const getSubjectsByCourseIdAndSemesterId = async (request, response) => {
   const { courseId, semesterId } = request.params;
 

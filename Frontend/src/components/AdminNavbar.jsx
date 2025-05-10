@@ -131,7 +131,12 @@ const AdminNavbar = () => {
               </a>
             </li>
 
-           
+           <li>
+                         <a href="/ReportM" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
+                           <FaClipboardList className={`transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}`} />
+                           {!collapsed && <span>Reports</span>}
+                         </a>
+            </li>
 
           </ul>
         </div>

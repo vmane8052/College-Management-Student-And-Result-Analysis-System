@@ -11,4 +11,4 @@ function MarkMEntryForm() {
   )
 }
 
-export default MarkMEntryForm
+export default MarkMEntryForm;

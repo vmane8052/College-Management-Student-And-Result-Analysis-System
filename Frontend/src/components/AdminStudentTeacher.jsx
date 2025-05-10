@@ -15,7 +15,7 @@ function AdminStudentTeacher() {
           <h2 className="text-2xl font-bold">Admin</h2>
           <p className="mt-2">Manage users, courses, Teacher and system settings.</p>
           <button className="mt-4 bg-white text-blue-500 px-4 py-2 rounded-lg hover:bg-gray-200">
-           <a href='/Login2'> Login </a>
+           <a href='/AdminLogin'> Login </a>
           </button>
         </div>
         {/* Teacher Box */}

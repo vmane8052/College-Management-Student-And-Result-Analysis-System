@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { getUsers, getSemesters, getTeachers } from "../service/api.js"; // Import API calls to fetch courses, semesters, and teachers
 
 const SubjectForm = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const SubjectForm = () => {
     semesterId: "",
     teacherId: "",
     credit: "",
+    subjectType: "Theory", // Default value
     internalMinMarks: "",
     internalMaxMarks: "",
     externalMinMarks: "",
@@ -23,7 +25,34 @@ const SubjectForm = () => {
 
   const [excelFile, setExcelFile] = useState(null);
   const [errors, setErrors] = useState({});
+  const [courses, setCourses] = useState([]); // State to store fetched courses
+  const [semesters, setSemesters] = useState([]); // State to store fetched semesters
+  const [teachers, setTeachers] = useState([]); // State to store fetched teachers
   const navigate = useNavigate();
+
+  // Fetch courses, semesters, and teachers when the component mounts
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch courses
+        const courseResponse = await getUsers();
+        setCourses(courseResponse.data);
+
+        // Fetch semesters
+        const semesterResponse = await getSemesters();
+        setSemesters(semesterResponse.data);
+
+        // Fetch teachers
+        const teacherResponse = await getTeachers();
+        setTeachers(teacherResponse.data);
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+        alert("Failed to load courses, semesters, or teachers. Please try again.");
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -55,8 +84,13 @@ const SubjectForm = () => {
           method: "POST",
           body: fd,
         });
-        alert((await response.json()).message);
-      } catch {
+        const result = await response.json();
+        if (!response.ok) {
+          throw new Error(result.message || "Excel upload failed");
+        }
+        alert(result.message);
+      } catch (error) {
+        console.error("Excel upload error:", error);
         alert("Excel upload failed");
       }
     }
@@ -87,10 +121,11 @@ const SubjectForm = () => {
           {[
             { label: "Subject ID", name: "subjectId", type: "text" },
             { label: "Subject Name", name: "subjectName", type: "text" },
-            { label: "Course ID", name: "courseId", type: "text" },
-            { label: "Semester ID", name: "semesterId", type: "text" },
-            { label: "Teacher ID", name: "teacherId", type: "text" },
+            { label: "Course ID", name: "courseId", type: "select" }, // Changed to select
+            { label: "Semester ID", name: "semesterId", type: "select" }, // Changed to select
+            { label: "Teacher ID", name: "teacherId", type: "select" }, // Changed to select
             { label: "Credit", name: "credit", type: "number" },
+            { label: "Subject Type", name: "subjectType", type: "select" },
             { label: "Internal Min Marks", name: "internalMinMarks", type: "number" },
             { label: "Internal Max Marks", name: "internalMaxMarks", type: "number" },
             { label: "External Min Marks", name: "externalMinMarks", type: "number" },
@@ -103,13 +138,50 @@ const SubjectForm = () => {
           ].map((field) => (
             <div key={field.name} className="flex flex-col">
               <label className="text-gray-700 font-medium">{field.label}</label>
-              <input
-                type={field.type}
-                name={field.name}
-                value={formData[field.name]}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-              />
+              {field.type === "select" ? (
+                <select
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="" disabled>
+                    Select {field.label}
+                  </option>
+                  {field.name === "subjectType" && (
+                    <>
+                      <option value="Theory">Theory</option>
+                      <option value="Practical">Practical</option>
+                    </>
+                  )}
+                  {field.name === "courseId" &&
+                    courses.map((course) => (
+                      <option key={course.courseId} value={course.courseId}>
+                        {course.courseId}
+                      </option>
+                    ))}
+                  {field.name === "semesterId" &&
+                    semesters.map((semester) => (
+                      <option key={semester.semId} value={semester.semId}>
+                        {semester.semId}
+                      </option>
+                    ))}
+                  {field.name === "teacherId" &&
+                    teachers.map((teacher) => (
+                      <option key={teacher.teacherId} value={teacher.teacherId}>
+                        {teacher.teacherId}
+                      </option>
+                    ))}
+                </select>
+              ) : (
+                <input
+                  type={field.type}
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                />
+              )}
               {errors[field.name] && (
                 <p className="text-red-500 text-sm">{errors[field.name]}</p>
               )}

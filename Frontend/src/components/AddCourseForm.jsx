@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const AddCourseForm = () => {
   const [formData, setFormData] = useState({
-    id: "",
     courseId: "",
     courseName: "",
     effectiveFrom: "",
@@ -26,8 +25,7 @@ const AddCourseForm = () => {
 
   const validate = () => {    
     const errs = {};
-
-    ["id","courseId","courseName","createdBy","createdOn"].forEach((k) => {
+    ["courseId", "courseName", "createdBy", "createdOn"].forEach((k) => {
       if (!formData[k]) errs[k] = "Required";
     });
     setErrors(errs);
@@ -38,7 +36,6 @@ const AddCourseForm = () => {
     e.preventDefault();
     if (!validate()) return;
 
-    
     if (excelFile) {
       const fd = new FormData();
       fd.append("file", excelFile);
@@ -53,7 +50,6 @@ const AddCourseForm = () => {
       }
     }
 
-    
     try {
       await axios.post("http://localhost:8000/add", formData);
       alert("Course Added Successfully!");
@@ -70,22 +66,23 @@ const AddCourseForm = () => {
         <h2 className="text-3xl font-bold text-center mb-6">Add Course</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {[
-            { lbl:"ID", name:"id", type:"text" },
-            { lbl:"Course Code", name:"courseId", type:"text" },
-            { lbl:"Effective From", name:"effectiveFrom", type:"date" },
-            { lbl:"Student Limit", name:"studentLimit", type:"number" },
-            { lbl:"No. of Divisions", name:"noOfDivision", type:"number" },
-            { lbl:"No. of Semesters", name:"noOfSemester", type:"number" },
-            { lbl:"Created By", name:"createdBy", type:"text" },
-            { lbl:"Created On", name:"createdOn", type:"date" },
-            { lbl:"Updated By", name:"updatedBy", type:"text" },
-            { lbl:"Updated On", name:"updatedOn", type:"date" },
-          ].map(({lbl,name,type})=>(
+            { lbl: "Course Code", name: "courseId", type: "text" },
+            { lbl: "Effective From", name: "effectiveFrom", type: "date" },
+            { lbl: "Student Limit", name: "studentLimit", type: "number" },
+            { lbl: "No. of Divisions", name: "noOfDivision", type: "number" },
+            { lbl: "No. of Semesters", name: "noOfSemester", type: "number" },
+            { lbl: "Created By", name: "createdBy", type: "text" },
+            { lbl: "Created On", name: "createdOn", type: "date" },
+            { lbl: "Updated By", name: "updatedBy", type: "text" },
+            { lbl: "Updated On", name: "updatedOn", type: "date" },
+          ].map(({ lbl, name, type }) => (
             <div key={name}>
               <label className="block text-gray-700">{lbl}</label>
               <input
-                type={type} name={name}
-                value={formData[name]} onChange={handleChange}
+                type={type}
+                name={name}
+                value={formData[name]}
+                onChange={handleChange}
                 className="w-full border px-3 py-2 rounded"
               />
               {errors[name] && <p className="text-red-500 text-sm">{errors[name]}</p>}
@@ -95,7 +92,8 @@ const AddCourseForm = () => {
           <div>
             <label className="block text-gray-700">Course Name</label>
             <select
-              name="courseName" value={formData.courseName}
+              name="courseName"
+              value={formData.courseName}
               onChange={handleChange}
               className="w-full border px-3 py-2 rounded"
             >
@@ -111,7 +109,8 @@ const AddCourseForm = () => {
           <div>
             <label className="block text-gray-700">Upload Excel File</label>
             <input
-              type="file" accept=".xlsx,.xls"
+              type="file"
+              accept=".xlsx,.xls"
               onChange={handleFileChange}
               className="w-full border px-3 py-2 rounded cursor-pointer"
             />
@@ -119,13 +118,18 @@ const AddCourseForm = () => {
 
           <div className="flex justify-between">
             <button
-              type="button" onClick={()=>window.history.back()}
+              type="button"
+              onClick={() => window.history.back()}
               className="px-4 py-2 bg-gray-400 text-white rounded"
-            >Back</button>
+            >
+              Back
+            </button>
             <button
               type="submit"
               className="px-4 py-2 bg-blue-500 text-white rounded"
-            >Submit</button>
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>

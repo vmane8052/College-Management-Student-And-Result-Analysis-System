@@ -1,6 +1,25 @@
 import axios from 'axios';
 
 const API_BASE_URL = 'http://localhost:8000';
+// Student Marks API calls
+export const addStudentMarks = async (marksData) => {
+  return await axios.post(`${API_BASE_URL}/student-marks/add`, marksData);
+};
+
+export const getStudentMarks = async (studentId, courseId, semesterId) => {
+  return await axios.get(`${API_BASE_URL}/student-marks/${studentId}/${courseId}/${semesterId}`);
+};
+export const updateStudentMarks = async (studentId, courseId, semesterId, marksData) => {
+  return await axios.put(`${API_BASE_URL}/student-marks/${studentId}/${courseId}/${semesterId}`, marksData);
+};
+
+export const getAllStudentMarksByCourseAndSemester = async (courseId, semesterId) => {
+  return await axios.get(`${API_BASE_URL}/student-marks/course/${courseId}/semester/${semesterId}`);
+};
+
+
+
+
 
 // User API calls
 export const addUser = async (userData) => {
@@ -172,12 +191,10 @@ export const getSubjectsByTeacherId = async (teacherId) => {
 
 
 
+
+
 // Admin Login
 export const loginAdmin = async (credentials) => {
-  try {
-    const response = await axios.post(`${API_BASE_URL}/admin/login`, credentials);
-    return response.data;
-  } catch (error) {
-    throw error.response?.data || { message: "API request failed" };
-  }
+  return await axios.post(`${API_BASE_URL}/admin/login`, credentials);
 };
+

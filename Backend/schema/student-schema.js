@@ -12,7 +12,7 @@ const studentSchema = new mongoose.Schema({
   admissionDate: { type: Date },
   address: { type: String },
   createdBy: { type: String, required: true },
-  createdOn: { type: Date, required: true },
+  createdOn: { type: String, required: true },
   updatedBy: { type: String },
   updatedOn: { type: Date },
   rollNo: { type: String },

@@ -46,10 +46,17 @@ const StudentSideBar = () => {
           </li>
           <li>
             <a href="/MarkMEntryForm" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
-              <FaHome className={'transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}'} />
-              {!collapsed && <span>Mark Fill</span>}
+              <FaClipboardList className={'transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}'} />
+              {!collapsed && <span>Mark Fill<br/></span>}
             </a>
           </li>
+          <li>
+            <a href="/FinalResult" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
+              <FaClipboardList className={'transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}'} />
+              {!collapsed && <span>Final Result <br/></span>}
+            </a>
+          </li>
+          
 
          
         </ul>

@@ -51,7 +51,6 @@ const ViewCourseTable = () => {
         <table className="w-full table-auto">
           <thead>
             <tr className="bg-gray-200">
-              <th className="px-4 py-2">ID</th>
               <th className="px-4 py-2">Course Code</th>
               <th className="px-4 py-2">Course Name</th>
               <th className="px-4 py-2">Created By</th>
@@ -62,7 +61,6 @@ const ViewCourseTable = () => {
           <tbody>
             {courses.map((course) => (
               <tr key={course._id || course.id} className="text-center">
-                <td className="border px-4 py-2">{course.id}</td>
                 <td className="border px-4 py-2">{course.courseId}</td>
                 <td className="border px-4 py-2">{course.courseName}</td>
                 <td className="border px-4 py-2">{course.createdBy}</td>

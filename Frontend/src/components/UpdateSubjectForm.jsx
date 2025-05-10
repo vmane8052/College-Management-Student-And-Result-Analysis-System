@@ -10,6 +10,7 @@ const UpdateSubjectForm = () => {
     semesterId: "",
     teacherId: "",
     credit: "",
+    subjectType: "Theory", 
     internalMinMarks: "",
     internalMaxMarks: "",
     externalMinMarks: "",
@@ -20,7 +21,7 @@ const UpdateSubjectForm = () => {
     updatedBy: "",
     updatedOn: "",
   });
-  const { id } = useParams(); // Get subject ID from URL
+  const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const UpdateSubjectForm = () => {
   };
 
   const handleBack = () => {
-    navigate(-1); // Go back
+    navigate(-1);
   };
 
   return (
@@ -76,6 +77,7 @@ const UpdateSubjectForm = () => {
             { label: "Semester ID", name: "semesterId", type: "text" },
             { label: "Teacher ID", name: "teacherId", type: "text" },
             { label: "Credit", name: "credit", type: "number" },
+            { label: "Subject Type", name: "subjectType", type: "select" }, // New field
             { label: "Internal Min Marks", name: "internalMinMarks", type: "number" },
             { label: "Internal Max Marks", name: "internalMaxMarks", type: "number" },
             { label: "External Min Marks", name: "externalMinMarks", type: "number" },
@@ -88,13 +90,25 @@ const UpdateSubjectForm = () => {
           ].map((field) => (
             <div key={field.name}>
               <label className="block text-gray-700 font-medium">{field.label}</label>
-              <input
-                type={field.type}
-                name={field.name}
-                value={formData[field.name] || ""}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
+              {field.type === "select" ? (
+                <select
+                  name={field.name}
+                  value={formData[field.name] || "Theory"}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                >
+                  <option value="Theory">Theory</option>
+                  <option value="Practical">Practical</option>
+                </select>
+              ) : (
+                <input
+                  type={field.type}
+                  name={field.name}
+                  value={formData[field.name] || ""}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+              )}
             </div>
           ))}
           <div className="flex justify-between">

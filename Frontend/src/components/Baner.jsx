@@ -9,7 +9,7 @@ function Baner() {
     <div className='space-y-8'>
    
     <h1 className='text-4xl font-bold mt-10 font-bold '>
-      STUDENT INFORMATION <br></br> <span className='pl-20 '>SYSTEM</span>
+      <span className='pl-10'>COLLEGE MANAGEMENT,</span> STUDENT & RESULT ANALYSIS <br></br> <span className='pl-40 '>SYSTEM</span>
       </h1>
       <p className='text-2xl text-pink-500'>
         An effecitive platform  to Ensure<br></br> Student Succes .<br></br>___To manage and track student <br></br>information, academic records, <br></br>and other related data. 

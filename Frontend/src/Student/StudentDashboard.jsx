@@ -55,7 +55,7 @@ const StudentDashboard = () => {
       }}
     >
       <div className="w-full max-w-lg bg-white bg-opacity-90 shadow-2xl rounded-lg p-10">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Welcome, {student.firstName} {student.lastName}
         </h2>
         <div className="space-y-6">
@@ -68,8 +68,7 @@ const StudentDashboard = () => {
             <p className="text-gray-600 text-base mt-1">{student.studentId}</p>
           </div>
           <div className="flex flex-col">
-            <label className="text-gray-700 text-lg font-bold">Course ID</label>
-            <p className="text-gray-600 text-base mt-1">{student.courseId || "Not assigned"}</p>
+            
           </div>
         </div>
       </div>

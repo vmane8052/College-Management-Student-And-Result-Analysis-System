@@ -20,6 +20,7 @@ function AdminNavabar1() {
         <li><a href='/AddSubject'>Add Subject</a></li>
         <li><a href='StudentAdd'>Add Student</a></li>
         <li><a href='AddTeacher'>Add Teacher</a></li>
+        <li><a href='/ReportM'>reports</a></li>
         <li><a href=''>Settings</a></li>
 
       </ul>

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const AddSemesterForm = () => {
   const [formData, setFormData] = useState({
-    id: "",
     semId: "",
     semName: "",
     createdBy: "",
@@ -24,7 +23,7 @@ const AddSemesterForm = () => {
 
   const validate = () => {
     const errs = {};
-    ["id", "semId", "semName", "createdBy", "createdOn"].forEach((key) => {
+    ["semId", "semName", "createdBy", "createdOn"].forEach((key) => {
       if (!formData[key]) errs[key] = "Required";
     });
     setErrors(errs);
@@ -65,7 +64,6 @@ const AddSemesterForm = () => {
         <h2 className="text-3xl font-bold text-center mb-6">Add Semester</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {[
-            { lbl: "ID", name: "id", type: "text" },
             { lbl: "Semester Code", name: "semId", type: "text" },
             { lbl: "Created By", name: "createdBy", type: "text" },
             { lbl: "Created On", name: "createdOn", type: "date" },

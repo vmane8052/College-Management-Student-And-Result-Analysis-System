@@ -40,6 +40,32 @@ import MCAStudents from "./Teacher/MCAStudents";
 import MBAStudents from "./Teacher/MBAStudents";
 import BCAStudents from "./Teacher/BCAStudents";
 import BBAStudents from "./Teacher/BBAStudents";
+import ViewResult from "./Teacher/ViewResult";
+import FinalResult from "./Student/FinalResult";
+import MCAFlipbook from "./components/MCAFlipbook";
+import MBAFlipbook from "./components/MBAFlipbook";
+import BCAFlipbook from "./components/BCAFlipbook";
+import BBAFlipbook from "./components/BBAFlipbook";
+import AboutUs from "./components/Aboutus";
+import ContactUs from "./components/ContactUs";
+import GenderDistributionGraph from "./Teacher/GenderDistributionGraph";
+import TotalGenderGraph from "./report/TotalGenderGraph";
+import ReligionDistributionGraph from "./report/ReligionDistributionGraph";
+import CasteDistributionGraph from "./report/CasteDistributionGraph";
+import BloodGroupDistributionGraph from "./report/BloodGroupDistributionGraph";
+import PercentageDistributionGraph from "./report/PercentageDistributionGraph";
+import MCAToppersGraph from "./report/MCAToppersGraph";
+import MBAToppersGraph from "./report/MBAToppersGraph";
+import BCAToppersGraph from "./report/BCAToppersGraph";
+import BBAToppersGraph from "./report/BBAToppersGraph";
+import MCAPassFailPieChart from "./report/MCAPassFailPieChart";
+import BCAPassFailPieChart from "./report/BCAPassFailPieChart";
+import BBAPassFailPieChart from "./report/BBAPassFailPieChart";
+import MBAPassFailPieChart from "./report/MBAPassFailPieChart";
+import ReportM from "./report/ReportM";
+import AdminLogin from "./Admin/AdminLogin";
+
+
 
 
 
@@ -91,6 +117,31 @@ function App() {
           <Route path="/MBAStudents" element={<MBAStudents/>}/>
           <Route path="/BCAStudents" element={<BCAStudents/>}/>
           <Route path="/BBAStudents" element={<BBAStudents/>}/>
+          <Route path="/ViewResult/:studentId/:courseId/:semesterId"element={<ViewResult/>}/>
+          <Route path="/FinalResult" element={<FinalResult/>}/>
+          <Route path="/MCAFlipbook" element={<MCAFlipbook/>}/>
+          <Route path="/MBAFlipbook" element={<MBAFlipbook/>}/>
+          <Route path="/BCAFlipbook" element={<BCAFlipbook/>}/>
+          <Route path="/BBAFlipbook" element={<BBAFlipbook/>}/>
+          <Route path="/AboutUs" element={<AboutUs/>}/>
+          <Route path="/ContactUs" element={<ContactUs/>}/>
+          <Route path="/GenderDistributionGraph" element={<GenderDistributionGraph/>}/>
+          <Route path="/TotalGenderGraph" element={<TotalGenderGraph/>}/>
+          <Route path="/ReligionDistributionGraph" element={<ReligionDistributionGraph/>}/>
+          <Route path="/CasteDistributionGraph" element={<CasteDistributionGraph/>}/>
+          <Route path="/BloodGroupDistributionGraph" element={<BloodGroupDistributionGraph/>}/>
+          <Route path="/PercentageDistributionGraph" element={<PercentageDistributionGraph/>}/>
+          <Route path="/MCAToppersGraph" element={<MCAToppersGraph/>}/>
+          <Route path="/MBAToppersGraph" element={<MBAToppersGraph/>}/>
+          <Route path="/BCAToppersGraph" element={<BCAToppersGraph/>}/>
+          <Route path="/BBAToppersGraph" element={<BBAToppersGraph/>}/>
+          <Route path="/MCAPassFailPieChart" element={<MCAPassFailPieChart/>}/>
+          <Route path="/BCAPassFailPieChart" element={<BCAPassFailPieChart/>}/>
+          <Route path="/BBAPassFailPieChart" element={<BBAPassFailPieChart/>}/>
+          <Route path="/MBAPassFailPieChart" element={<MBAPassFailPieChart/>}/>
+          <Route path="/ReportM" element={<ReportM/>}/>
+          <Route path="/AdminLogin" element={<AdminLogin/>}/>
+
 
         
       </Routes>

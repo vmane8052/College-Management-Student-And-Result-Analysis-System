@@ -11,4 +11,4 @@ function ViewMProfile() {
   )
 }
 
-export default ViewMProfile
+export default ViewMProfile;
