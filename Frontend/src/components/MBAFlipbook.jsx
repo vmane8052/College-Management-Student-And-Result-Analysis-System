@@ -3,7 +3,7 @@ import React from 'react';
 function MBAFlipbook() {
   return (
 
-
+    <div className='mt-14'>
     <div style={{
         width: '100vw',
         height: '100vh',
@@ -11,7 +11,8 @@ function MBAFlipbook() {
         padding: 0,
         overflow: 'hidden',
     }}>
-    <iframe
+    
+    <iframe 
     title="MBA Prospectus 24-25"
     src="https://heyzine.com/flip-book/e3d162af38.html"
     style={{
@@ -21,6 +22,7 @@ function MBAFlipbook() {
     }}
     allowFullScreen
     />
+    </div>
     </div>
 );
 }

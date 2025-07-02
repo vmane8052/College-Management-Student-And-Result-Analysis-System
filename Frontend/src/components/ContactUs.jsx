@@ -64,7 +64,7 @@ function ContactUs() {
   };
 
   return (
-    <div style={styles.contactSection}>
+    <div style={styles.contactSection} className="mt-14">
       <h2 style={styles.title}>Contact Us</h2>
       <div style={styles.cardsContainer}>
         <div style={styles.card}>

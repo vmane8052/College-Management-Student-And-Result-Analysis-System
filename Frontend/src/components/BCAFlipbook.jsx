@@ -2,6 +2,7 @@ import React from 'react'
 
 function BCAFlipbook() {
   return (
+    <div className='mt-14'>
     <div style={{
         width: '100vw',
         height: '100vh',
@@ -19,6 +20,7 @@ function BCAFlipbook() {
     }}
     allowFullScreen
     />
+    </div>
     </div>
   )
 }

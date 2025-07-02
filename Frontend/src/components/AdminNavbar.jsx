@@ -79,21 +79,7 @@ const AdminNavbar = () => {
 
            
 
-            {/* Add Subject */}
-            <li>
-              <a href="/AddSubject" className="flex items-center gap-3 p-3 hover:bg-gray-700 rounded w-full">
-                <FaClipboardList className={`transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}`} />
-                {!collapsed && <span>Add Subject</span>}
-              </a>
-            </li>
-
-            {/* View Subject */}
-            <li>
-              <a href="ViewSubject" className="flex items-center gap-3 p-3 hover:bg-gray-700 rounded w-full">
-                <FaClipboardList className={`transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}`} />
-                {!collapsed && <span>View Subject</span>}
-              </a>
-            </li>
+            
 
            
 
@@ -131,7 +117,23 @@ const AdminNavbar = () => {
               </a>
             </li>
 
-           <li>
+           
+            {/* Add Subject */}
+            <li>
+              <a href="/AddSubject" className="flex items-center gap-3 p-3 hover:bg-gray-700 rounded w-full">
+                <FaClipboardList className={`transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}`} />
+                {!collapsed && <span>Add Subject</span>}
+              </a>
+            </li>
+
+            {/* View Subject */}
+            <li>
+              <a href="ViewSubject" className="flex items-center gap-3 p-3 hover:bg-gray-700 rounded w-full">
+                <FaClipboardList className={`transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}`} />
+                {!collapsed && <span>View Subject</span>}
+              </a>
+            </li>
+            <li>
                          <a href="/ReportM" className="flex items-center gap-3 p-3 hover:bg-[#c4db8f] rounded w-full justify-left">
                            <FaClipboardList className={`transition-all duration-300 ${collapsed ? "text-4xl" : "text-2xl"}`} />
                            {!collapsed && <span>Reports</span>}

@@ -72,7 +72,7 @@ const AboutUs = () => {
   };
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className='mt-14'>
       <h1 style={styles.heading}>About Us</h1>
       <div style={styles.contentWrapper}>
         <div style={styles.column}>

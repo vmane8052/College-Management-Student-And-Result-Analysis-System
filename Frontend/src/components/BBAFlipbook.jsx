@@ -2,7 +2,7 @@ import React from 'react'
 
 function BBAFlipbook() {
     return (
-    
+         <div className='mt-14'>
         <div style={{
             width: '100vw',
             height: '100vh',
@@ -20,6 +20,7 @@ function BBAFlipbook() {
         }}
         allowFullScreen
         />
+        </div>
         </div>
     )
 }

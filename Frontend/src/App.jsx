@@ -42,12 +42,6 @@ import BCAStudents from "./Teacher/BCAStudents";
 import BBAStudents from "./Teacher/BBAStudents";
 import ViewResult from "./Teacher/ViewResult";
 import FinalResult from "./Student/FinalResult";
-import MCAFlipbook from "./components/MCAFlipbook";
-import MBAFlipbook from "./components/MBAFlipbook";
-import BCAFlipbook from "./components/BCAFlipbook";
-import BBAFlipbook from "./components/BBAFlipbook";
-import AboutUs from "./components/Aboutus";
-import ContactUs from "./components/ContactUs";
 import GenderDistributionGraph from "./Teacher/GenderDistributionGraph";
 import TotalGenderGraph from "./report/TotalGenderGraph";
 import ReligionDistributionGraph from "./report/ReligionDistributionGraph";
@@ -64,6 +58,12 @@ import BBAPassFailPieChart from "./report/BBAPassFailPieChart";
 import MBAPassFailPieChart from "./report/MBAPassFailPieChart";
 import ReportM from "./report/ReportM";
 import AdminLogin from "./Admin/AdminLogin";
+import Aboutus from "./home/Aboutus";
+import Contect from "./home/Contect";
+import MCA from "./home/MCA";
+import MBA from "./home/MBA";
+import BCA from "./home/BCA";
+import BBA from "./home/BBA";
 
 
 
@@ -119,12 +119,12 @@ function App() {
           <Route path="/BBAStudents" element={<BBAStudents/>}/>
           <Route path="/ViewResult/:studentId/:courseId/:semesterId"element={<ViewResult/>}/>
           <Route path="/FinalResult" element={<FinalResult/>}/>
-          <Route path="/MCAFlipbook" element={<MCAFlipbook/>}/>
-          <Route path="/MBAFlipbook" element={<MBAFlipbook/>}/>
-          <Route path="/BCAFlipbook" element={<BCAFlipbook/>}/>
-          <Route path="/BBAFlipbook" element={<BBAFlipbook/>}/>
-          <Route path="/AboutUs" element={<AboutUs/>}/>
-          <Route path="/ContactUs" element={<ContactUs/>}/>
+          <Route path="/MCAFlipbook" element={<MCA/>}/>
+          <Route path="/MBAFlipbook" element={<MBA/>}/>
+          <Route path="/BCAFlipbook" element={<BCA/>}/>
+          <Route path="/BBAFlipbook" element={<BBA/>}/>
+          <Route path="/AboutUs" element={<Aboutus/>}/>
+          <Route path="/ContactUs" element={<Contect/>}/>
           <Route path="/GenderDistributionGraph" element={<GenderDistributionGraph/>}/>
           <Route path="/TotalGenderGraph" element={<TotalGenderGraph/>}/>
           <Route path="/ReligionDistributionGraph" element={<ReligionDistributionGraph/>}/>
