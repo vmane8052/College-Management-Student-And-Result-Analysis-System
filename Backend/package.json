@@ -4,8 +4,9 @@
   "description": "student management system",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "start": "nodemon index.js",
+ "scripts": {
+    "start": "node index.js",        // ✅ Use this for Render
+    "dev": "nodemon index.js",       // ✅ Keep this for local development
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "vikas mane",
