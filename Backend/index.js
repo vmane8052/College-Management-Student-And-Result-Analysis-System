@@ -16,9 +16,11 @@ app.use('/Uploads', express.static('Uploads'));
 
 app.use('/', router);
 
-const PORT = process.env.PORT || 8000;
+const PORT =  8000;
+const username =process.env.DB_USERNAME;
+const password =process.env.DB_PASSWOARD;
 
-connection();
+connection(username,password);
 
 app.listen(PORT, () => {
   console.log(`Server is running successfully on port ${PORT}`);
